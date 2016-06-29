@@ -1,0 +1,37 @@
+* {margin: 0; padding: 0;}
+
+nav#LoginBar ul{
+	float: right;
+	white-space: nowrap;
+}
+nav#LoginBar ul li{
+	width:auto;
+	height:30px;
+	margin:10px;
+	padding:0px 6px 0px 6px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #406BA8;
+	color:#FFFFFF;
+}
+nav#LoginBar ul li a{
+	color:#FFFFFF;
+	text-decoration: none;
+
+}
+li{
+	display: inline-block;
+	list-style-type: none;
+}
+
+navv {position: absolute; top: 0; right 0;}
+
+nav#LoginBar button {float: right; margin: 10px;}
+
+nav#LoginBar p {float: right;}
+
+hrr {border: 1px solid black;}
+
+#loginBox {position: absolute; width: 250px; height: 120px; border: 1px solid black; top: 50%; right:50%}
+
+#closeLoginbox {float: right;}

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+<html>
+<meta charset="UTF-8"> 
+	<head>
+		<title>NYP Forums</title>
+		<link rel="stylesheet" type="text/css" href="css/forumThread.css">
+		<link rel="stylesheet" type="text/css" href="css/footer.css">
+		<script type="text/javascript" src="js/ForumThread.js"></script>
+		<!-- Chat function -->
+		<script type="text/javascript" src="js/ChatFunction.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ChatBox.css">
+		<!-- Login function -->
+		<script type="text/javascript" src="js/LoginFunction.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginPage.css">
+		<script>
+			window.onload = function() {LoginOnload(); ChatBoxCounter();}
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav id="LoginBar">
+				<a href="index.html"><img src="img/logo/logo.jpg"></a>
+				<ul>
+					<li id="loginWelcome" style="display: none;"<li>
+					<li><a href="http://www.nyp.edu.sg/">Main</a></li>
+					<li>Tool</li>
+					<li id="loginButton"><a href="#" onclick="loginator()">Login</a></li>
+					<li id="loginLogout" style="display: none;"><a href="#" onclick="logoutinator()" required>Log Out</a></li>
+				</ul>
+			</nav>
+			
+			<form id="loginBox" style="display: none;" onsubmit="loginSubmit(); this.reset(); return false;">
+				<button id="closeLoginbox" onclick="loginXbox()">X</button>
+				Username:<br><input id="loginData" required><br>
+				Password:<br><input id="loginPW" type="password"  required>
+				<button onclick="loginSubmit()" required>Submit</button>
+			</form>
+			
+			<nav id="NavBar">
+				<ul>
+					<li><a href="">SIT</a></li>
+					<li><a href="">SED</a></li>
+					<li><a href="">SDN</a></li>
+					<li><a href="">SBM</a></li>
+					<li><a href="">SHS</a></li>
+					<li><a href="">SCL</a></li>
+					<li><a href="">SIDM</a></li>
+					<li>CCA
+						<ul class="nav_hover">
+							<li>Academic club
+								<ul>
+									<li>SBM</li>
+									<li>SCL</li>
+									<li>SDN</li>
+									<li>SEG</li>
+									<li>SHS</li>
+									<li>SIDM</li>
+									<li>SIT</li>
+								</ul>
+							</li>
+							
+							<li>Arts and Culture
+								<ul>
+									<li>Chinese Culture</li>
+									<li>CHinese Orchestra</li>
+									<li>Dance Company</li>
+									<li>Danz INC</li>
+									<li>Der treff German</li>
+									<li>Foreign Bodies</li>
+									<li>Guitar Club</li>
+									<li>Harmonica Ensemble</li>
+									<li>Indian Culture</li>
+									<li>K-Wave Korean</li>
+								</ul>
+								<ul>
+									<li>L'Hexagon French</li>
+									<li>La Ballroom En Masse</li>
+									<li>Malay Culture</li>
+									<li>Makeup Artistry</li>
+									<li>Piano Ensemble</li>
+									<li>Stagearts</li>
+									<li>Sakuran Japanese Culture</li>
+									<li>Sketch Art</li>
+									<li>SoundCard</li>
+									<li>Symphony Orchestra</li>
+								</ul>
+								<ul>
+									<li>Voice Ensemble</li>
+								</ul>
+							</li>
+							<li>Community Service and Environment
+								<ul>
+									<li>BB Primers</li>
+									<li>CD Lionhearters Club</li>
+									<li>Community Service Club</li>
+									<li>Emcee Club</li>
+									<li>Geo Council</li>
+									<li>International Friendship Club</li>
+									<li>Leo Club</li>
+									<li>Mentoring Club</li>
+									<li>Photography Club</li>
+									<li>Rotaract Club</li>
+								</ul>
+							</li>
+							<li>Sports and Adventure
+							</li>
+							<li>Leadership and Development</li>
+							<li>Mind Sports</li>
+							<li>Interest Group</li>
+						</ul>
+					</li>
+					<li>Others
+						<ul>
+							<li>Game</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<article id="topbar">
+				<!-- Search -->
+				<form method=“get” action="FormProcessor.html" id="search">
+					<input placeholder="Search" name="search_data" value="">
+					<input type="image" id="search_icon" src="img/search_icon.png" alt="Search" style="height: 2em;"/>
+				</form>
+				<!-- Post -->
+				<p class="post">Post</p>	
+			</article>
+			<article id="mainsection">
+				<!-- Threads -->
+				<table>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<h3><a href="">Announcement 1</a></h3>
+				<h3><a href="">Announcement 2</a></h3>
+				<h3><a href="">Thread 17</a></h3>
+				<h3><a href="">Thread 16</a></h3>
+				<h3><a href="">Thread 15</a></h3>
+				<h3><a href="">Thread 14</a></h3>
+				<h3><a href="">Thread 13</a></h3>
+				<h3><a href="">Thread 12</a></h3>
+   				<h3><a href="">Thread 11</a></h3>
+				<h3><a href="">Thread 10</a></h3>
+				<h3><a href="">Thread 9</a></h3>
+				<h3><a href="">Thread 8</a></h3>
+				<h3><a href="">Thread 7</a></h3>
+				<h3><a href="">Thread 6</a></h3>
+				<h3><a href="">Thread 5</a></h3>
+				<h3><a href="">Thread 4</a></h3>
+				<h3><a href="">Thread 3</a></h3>
+				<h3><a href="">Thread 2</a></h3>
+				<h3><a href="">Thread 1</a></h3>
+			
+				
+			</article>
+			
+		</section>
+		<section>
+			
+		</section>
+		
+		<!-- footer -->
+		<footer>
+			<a href="http://www.nyp.edu.sg/others/copyright-and-disclaimer">Copyright and Disclaimer</a>
+			<strong>|</strong>
+			<a href="http://www.nyp.edu.sg/others/privacy-policy">Privacy Policy</a>
+			<strong>|</strong>
+			<a href="http://www.nyp.edu.sg/others/organisational-awards">Organizational Awards</a>
+			<hr>
+			<p>Nanyang Polytechnic 180 Ang Mo Kio Avenue 8 Singapore 569830 Tel:6451 5115<br>
+	       		Copyright© 2013 NYP, Singapore. All rights reserved.<br>
+	      		 Best viewed at 1024 x 768 resolution with Internet Explorer 8.</p>
+		</footer>
+		
+		<!-- Chat -->
+		<div id="ChatBoxWrapper" style="display: none;">
+			<div id="ChatCommentView">
+				<span class="name">Hendry</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hello!</p>
+				<span class="name">Caroline</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hi!</p>
+				<div id="ChatBoxBottomLine" style="visibility: hidden;"/>
+			</div>
+		
+			<form id="ChatEnterField" onsubmit="this.reset(); return false">
+				<input id="ChatCommentData" onkeypress="" placeholder="Type your text here" required>
+				<button onclick="ChatCommentEnter()" required>Send</button>
+			</form>
+		
+			<div id="ChatLoginedUsers">
+				<p class="name">Hendry</p>
+				<p class="name">Caroline</p>
+				<p class="name">Maverick</p>
+			</div>
+			<div id="ChatBoxIcon-Background"></div>
+		</div></div>
+		<div id="ChatBoxButton" style="display: none;">
+			<input type="image" src="img/chatbox.png" border="1px solid black" id="ChatBoxIcon" onClick="ChatBoxCounter()"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+#ChatBoxBottomLine {background-color: black; height: 1px; width: 100%;}
+
+#ChatBoxIcon {background-color: #ffffff; position: fixed; bottom: 0;  right: 0; height: 2em; padding: 10px 20px 10px 20px; margin-top: 5px; z-index: 1001;}	
+	
+#ChatBoxIcon-Background {position: fixed; background-color: #108AB3; bottom: 0%; right:0%; width: 320px; height: 52px; border: 1px solid black; z-index: 1000;}
+
+#chatbox {background-color: #ffffff; position: fixed; bottom: 0;  right: 0; height: 2em; padding: 10px 20px 10px 20px; margin-top: 5px; z-index: 1001;}
+
+
+#ChatEnterField {position: fixed; bottom: 53px; right: 98px; width: 202px; height:20px; border: 1px solid black; background-color: #ffffff; padding: 10px;}
+
+#ChatCommentView {position: fixed; bottom: 94px; right: 98px; width: 202px; height:365px; border: 1px solid black; background-color: #ffffff; padding: 10px; overflow-y: auto;}
+
+#ChatLoginedUsers {position: fixed; right: 0%; bottom: 53px; width: 87px; height: 416px; background-color: #ffffff; border: 1px solid black; padding: 5px;}
+
+.name {color: #006400; font-weight: bold;}
