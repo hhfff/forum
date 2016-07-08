@@ -2,9 +2,194 @@
 <html lan="en">
 <head>
 <title>GPA calculator</title>
+		<link rel="stylesheet" type="text/css" href="css/footer.css">
+		<script type="text/javascript" src="js/nav.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<!-- Chat function -->
+		<script type="text/javascript" src="js/ChatFunction.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ChatBox.css">
+		<!-- Login function -->
+		<script type="text/javascript" src="js/LoginFunction.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginPage.css">
+		<script>
+			window.onload = function() {StartupChecker();}
+		</script>
+		<style>
+		body {background-color: #66BEED;}
+		center {width: 98%; margin: auto; background-color: white; margin-top: 10px;}
+		</style>
 </head>
 <body>
+		<header>
+			<nav id="LoginBar">
+				<ul>
+					<li id="WelcomeUserName"></li>
+					<li><a href="http://www.nyp.edu.sg/">Main</a></li>
+					<li>Tool</li>
+					<li id="LoginButton"><a href="#" onclick="WhenLoginPress()">Login</a></li>
+					<li id="LogoutButton"><a href="#" onclick="WhenLogoutPress()">Log Out</a></li>
+				</ul>
+			</nav>
+			
+			<div id="LoginBox">
+				<form onsubmit="LoginSubmit(); this.reset(); return false;">
+					<button id="CloseLBButton" onclick="CloseLoginbox()">X</button>
+					Username:<br><input id="loginName" maxlength="9" required><br>
+					Password:<br><input id="loginPW" type="password"  required>
+					<button onclick="LoginSubmit()" required>Submit</button>
+				</form>
+			</div>
+
+			<nav id="navBar">
+				<a href="index.html"><img style="height: 60px; margin: 5px;" src="img/logo/logo.png"></a>
+				<ul>
+					<li><a href="">SIT</a></li>
+					<li><a href="">SED</a></li>
+					<li><a href="">SDN</a></li>
+					<li><a href="">SBM</a></li>
+					<li><a href="">SHS</a></li>
+					<li><a href="">SCL</a></li>
+					<li><a href="">SIDM</a></li>
+					<li>
+						<a href="">CCA</a>
+						<ul>
+							<li><a href="">Academic club</a>
+								<ul>
+									<li><a href="">SBM</a></li>
+									<li><a href="">SCL</a></li>
+									<li><a href="">SDN</a></li>
+									<li><a href="">SEG</a></li>
+									<li><a href="">SHS</a></li>
+									<li><a href="">SIDM</a></li>
+									<li><a href="">SIT</a></li>
+								</ul>
+							</li>
+							
+							<li><a href="">Arts and Culture</a>
+								<ul >
+									<li><a href="">Chinese Culture</a></li>
+									<li><<a href="">CHinese Orchestra</a></li>
+									<li><<a href="">Dance Company</a></li>
+									<li><a href="">Danz INC</a></li>
+									<li><a href="">Der treff German</a></li>
+									<li><a href="">Foreign Bodies</a></li>
+									<li><a href="">Guitar Club</a></li>
+									<li><a href="">Harmonica Ensemble</a></li>
+									<li><a href="">Indian Culture</a></li>
+									<li><a href="">K-Wave Korean</a></li>
+								</ul>
+								<ul class="row2">
+									<li><a href="">L'Hexagon French</a></li>
+									<li><a href="">La Ballroom En Masse</a></li>
+									<li><a href="">Malay Culture</a></li>
+									<li><a href="">Makeup Artistry</a></li>
+									<li><a href="">Piano Ensemble</a></li>
+									<li><a href="">Stagearts</a></li>
+									<li><a href="">Sakuran Japanese Culture</a></li>
+									<li><a href="">Sketch Art</a></li>
+									<li><a href="">SoundCard</a></li>
+									<li><a href="">>Symphony Orchestra</a</li>
+								</ul>
+								<ul class="row3">
+									<li><a href="">Voice Ensemble</a></li>
+								</ul>
+							</li>
+							<li><a href="">Community Service and Environment</a></a>
+								<ul>
+									<li><a href="">BB Primers</a></li>
+									<li><a href="">CD Lionhearters Club</a></li>
+									<li><a href="">Community Service Club</a></li>
+									<li><a href="">Emcee Club</a></li>
+									<li><a href="">Geo Council</a></li>
+									<li><a href="">International Friendship Club</a></li>
+									<li><a href="">Leo Club</a></li>
+									<li><a href="">Mentoring Club</a></li>
+									<li><a href="">Photography Club</a></li>
+									<li><a href="">Rotaract Club</a></li>
+								</ul>
+							</li>
+							<li><a href="">Sports and Adventure</a></a>
+								<ul>
+									<li><a href="">Adventure Club</a></li>
+									<li><a href="">Aikido</a></li>
+									<li><a href="">Athletics</a></li>
+									<li><a href="">Badminton</a></li>
+									<li><a href="">Basketball</a></li>
+									<li><a href="">Bei Quan Dao</a></li>
+									<li><a href="">Bowling</a></li>
+									<li><a href="">Canoe Sprint</a></li>
+									<li><a href="">Dragonboat</a></li>
+									<li><a href="">Floorball</a></li>
+								</ul>
+								<ul class="row2">
+									<li><a href="">Ultimate Frisbee</a></li>
+									<li><a href="">Hockey</a></li>
+									<li><a href="">Judo</a></li>
+									<li><a href="">Kendo</a></li>
+									<li><a href="">Lifesaving</a></li>
+									<li><a href="">Netball</a></li>
+									<li><a href="">Silat</a></li>
+									<li><a href="">Soccer</a></li>
+									<li><a href="">Squash</a></li>
+									<li><a href="">Swimming</a></li>
+								</ul>
+								<ul class="row3">
+									<li><a href="">Table Tennis</a></li>
+									<li><a href="">Taekwondo</a></li>
+									<li><a href="">Tchoukball</a></li>
+									<li><a href="">Tennis</a></li>
+									<li><a href="">Taekwondo</a></li>
+									<li><a href="">Tchoukball</a></li>
+									<li><a href="">Tennis</a></li>
+									<li><a href="">Touch Football</a></li>
+									<li><a href="">Volleyball</a></li>
+									<li><a href="">Water Polo</a></li>
+								</ul>
+								<ul class="row4">
+									<li><a href="">Zhonghua Wushu</a></li>
+								</ul>
+							
+							</li>
+							<li><a href="">Leadership and Development</a>
+								<ul>
+									<li><a href="">Ambassadorial Team</a></li>
+									<li><a href="">Current Affairs & Debating Club</a></li>
+									<li><a href="">Entrepreneurship Club</a></li>
+									<li><a href="">Library Champion</a></li>
+									<li><a href="">National Youth Achievement Award</a></li>
+									<li><a href="">Students' Union</a></li>
+									<li><a href="">Team Outreach</a></li>
+								</ul>
+							</li>
+							<li><a href="">Mind Sports</a>
+								<ul>
+									<li><a href="">Mind Sports</a></li>
+								</ul>
+							</li>
+
+							<li><a href="">Interest Group</a>
+								<ul>
+									<li><a href="">Astronomy Club</a></li>
+									<li><a href="">Live Audio</a></li>
+									<li><a href="">NYP Lion & Dragon Dance Troupe</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><a href="">Others</a>
+						<ul>
+							<li><a href="">Game</a>
+								<ul>
+									<li><a href="">LOL</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
 <CENTER>
+<h1>GPA calculator</h1>
 <FORM Name="GPACalcForm">
 <TABLE BORDER=5 BGCOLOR=#C0C0C0 CELLPADDING="5" 
 CELLSPACING="2">
@@ -178,7 +363,52 @@ return 0;
     
 </SCRIPT>
 
-<p align="center"><font face="arial" size="-2">This free script provided by</font><br>
-<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
-Kit</a></font></p>
+		<!-- footer -->
+		<footer>
+			<a href="http://www.nyp.edu.sg/others/copyright-and-disclaimer">Copyright and Disclaimer</a>
+			<strong>|</strong>
+			<a href="http://www.nyp.edu.sg/others/privacy-policy">Privacy Policy</a>
+			<strong>|</strong>
+			<a href="http://www.nyp.edu.sg/others/organisational-awards">Organizational Awards</a>
+			<strong>|</strong>
+			<a href="Contact Page.html">Contact Us</a>
+			<hr>
+			<p>Nanyang Polytechnic 180 Ang Mo Kio Avenue 8 Singapore 569830 Tel:6451 5115<br>
+	       		Copyright© 2016 NYP, Singapore. All rights reserved.<br>
+	      		 Best viewed at 1920 x 1080 resolution with Firefox.</p>
+		</footer>
+
+		<!-- Chat -->
+		<a onclick="CBToggler()" href="#"><img id="CBToggler" src="img/Chatbox.png"></a>
+		
+		<div id="CBWrapper" style="display: none;">
+			<div id="CBComments">
+				<div class="CBTextBG">
+					<span class="CBNames">Hendry</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hello!</p>
+				</div>
+				<div class="CBTextBG">				
+					<span class="CBNames">Caroline</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hi!</p>
+				</div>
+				<div id="CBHidden" style="visibility: hidden;"></div>
+			</div>
+			
+			<p class="CBNameHeader">Online<p>
+			<div id="CBUsers">
+				<p class="CBNames">Hendry</p>
+				<p class="CBNames">Caroline</p>
+			</div>
+			
+			<div id="CBChatField">
+				<form onsubmit="this.reset(); return false">
+					<label style="display: none;">Message:</label><input id="CBCommentData" required></input>
+					<button onclick="CBCommentSend()">Send</button>
+				</form>
+			</div>
+		
+			<div id="CBTogglerBG"></div>
+		</div>
 </body>

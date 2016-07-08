@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="js/LoginFunction.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/loginPage.css">
 	<script>
-		window.onload = function() {LoginOnload(); ChatBoxCounter();}
+		window.onload = function() {StartupChecker();}
 	</script>
 </head>
 
@@ -25,22 +25,23 @@
 			
 			<header>
 			<nav id="LoginBar">
-				
 				<ul>
-					<li id="loginWelcome" style="display: none;"<li>
+					<li id="WelcomeUserName"></li>
 					<li><a href="http://www.nyp.edu.sg/">Main</a></li>
 					<li>Tool</li>
-					<li id="loginButton"><a href="#" onclick="loginator()">Login</a></li>
-					<li id="loginLogout" style="display: none;"><a href="#" onclick="logoutinator()" required>Log Out</a></li>
+					<li id="LoginButton"><a href="#" onclick="WhenLoginPress()">Login</a></li>
+					<li id="LogoutButton"><a href="#" onclick="WhenLogoutPress()">Log Out</a></li>
 				</ul>
 			</nav>
 			
-			<form id="loginBox" style="display: none;" onsubmit="loginSubmit(); this.reset(); return false;">
-				<button id="closeLoginbox" onclick="loginXbox()">X</button>
-				Username:<br><input id="loginData" required><br>
-				Password:<br><input id="loginPW" type="password"  required>
-				<button onclick="loginSubmit()" required>Submit</button>
-			</form>
+			<div id="LoginBox">
+				<form onsubmit="LoginSubmit(); this.reset(); return false;">
+					<button id="CloseLBButton" onclick="CloseLoginbox()">X</button>
+					Username:<br><input id="loginName" maxlength="9" required><br>
+					Password:<br><input id="loginPW" type="password"  required>
+					<button onclick="LoginSubmit()" required>Submit</button>
+				</form>
+			</div>
 
 			<nav id="navBar">
 				<a href="index.html"><img style="height: 60px; margin: 5px;" src="img/logo/logo.png"></a>
