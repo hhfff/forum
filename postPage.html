@@ -1,5 +1,5 @@
 <!doctype html>
-<html lan="en">
+<html lang="en">
 <head>
 <title>Post</title>
 	<link rel="stylesheet" type="text/css" href="css/postPage.css">
@@ -7,33 +7,37 @@
 	<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
 	<script type="text/javascript" src="js/postPage.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/nav.css">
+
+	<!-- Chat function -->
 	<script type="text/javascript" src="js/ChatFunction.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/ChatBox.css">
+	<!-- Login function -->
 	<script type="text/javascript" src="js/LoginFunction.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/loginPage.css">
 	<script>
-		window.onload = function() {LoginOnload(); ChatBoxCounter();}
+		window.onload = function() {StartupChecker();}
 	</script>
 </head>
 <body>
 	<header>
 			<nav id="LoginBar">
-				
 				<ul>
-					<li id="loginWelcome" style="display: none;"<li>
+					<li id="WelcomeUserName"></li>
 					<li><a href="http://www.nyp.edu.sg/">Main</a></li>
-					<li>Tool</li>
-					<li id="loginButton"><a href="#" onclick="loginator()">Login</a></li>
-					<li id="loginLogout" style="display: none;"><a href="#" onclick="logoutinator()" required>Log Out</a></li>
+					<li><a href="gpaCalculator.html">Tool</a></li>
+					<li id="LoginButton"><a href="#" onclick="WhenLoginPress()">Login</a></li>
+					<li id="LogoutButton"><a href="#" onclick="WhenLogoutPress()">Log Out</a></li>
 				</ul>
 			</nav>
 			
-			<form id="loginBox" style="display: none;" onsubmit="loginSubmit(); this.reset(); return false;">
-				<button id="closeLoginbox" onclick="loginXbox()">X</button>
-				Username:<br><input id="loginData" required><br>
-				Password:<br><input id="loginPW" type="password"  required>
-				<button onclick="loginSubmit()" required>Submit</button>
-			</form>
+			<div id="LoginBox">
+				<form onsubmit="LoginSubmit(); this.reset(); return false;">
+					<button id="CloseLBButton" onclick="CloseLoginbox()">X</button>
+					Username:<br><input id="loginName" maxlength="9" required><br>
+					Password:<br><input id="loginPW" type="password"  required>
+					<button onclick="LoginSubmit()" required>Submit</button>
+				</form>
+			</div>
 
 			<nav id="navBar">
 				<a href="index.html"><img style="height: 60px; margin: 5px;" src="img/logo/logo.png"></a> 
@@ -244,38 +248,46 @@
 			<a href="http://www.nyp.edu.sg/others/privacy-policy">Privacy Policy</a>
 			<strong>|</strong>
 			<a href="http://www.nyp.edu.sg/others/organisational-awards">Organizational Awards</a>
+			<strong>|</strong>
+			<a href="Contact Page.html">Contact Us</a>
 			<hr>
 			<p>Nanyang Polytechnic 180 Ang Mo Kio Avenue 8 Singapore 569830 Tel:6451 5115<br>
-	       		Copyright© 2013 NYP, Singapore. All rights reserved.<br>
-	      		 Best viewed at 1024 x 768 resolution with Internet Explorer 8.</p>
+	       		Copyright© 2016 NYP, Singapore. All rights reserved.<br>
+	      		 Best viewed at 1920 x 1080 resolution with Firefox.</p>
 	</footer>
 		<!-- Chat -->
-		<div id="ChatBoxWrapper" style="display: none;">
-			<div id="ChatCommentView">
-				<span class="name">Hendry</span>
-				<span>22/7/2016 16:55</span>
-				<p>Hello!</p>
-				<span class="name">Caroline</span>
-				<span>22/7/2016 16:55</span>
-				<p>Hi!</p>
-				<div id="ChatBoxBottomLine" style="visibility: hidden;"></div>
+		<a onclick="CBToggler()" href="#"><img id="CBToggler" src="img/Chatbox.png"></a>
+		
+		<div id="CBWrapper" style="display: none;">
+			<div id="CBComments">
+				<div class="CBTextBG">
+					<span class="CBNames">Hendry</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hello!</p>
+				</div>
+				<div class="CBTextBG">				
+					<span class="CBNames">Caroline</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hi!</p>
+				</div>
+				<div id="CBHidden" style="visibility: hidden;"></div>
+			</div>
+			
+			<p class="CBNameHeader">Online<p>
+			<div id="CBUsers">
+				<p class="CBNames">Hendry</p>
+				<p class="CBNames">Caroline</p>
+			</div>
+			
+			<div id="CBChatField">
+				<form onsubmit="this.reset(); return false">
+					<label style="display: none;">Message:</label><input id="CBCommentData" required></input>
+					<button onclick="CBCommentSend()">Send</button>
+				</form>
 			</div>
 		
-			<form id="ChatEnterField" onsubmit="this.reset(); return false">
-				<input id="ChatCommentData" onkeypress="" placeholder="Type your text here" required>
-				<button onclick="ChatCommentEnter()" required style="visibility: hidden;">Send</button>
-			</form>
-		
-			<div id="ChatLoginedUsers">
-				<p class="name">Hendry</p>
-				<p class="name">Caroline</p>
-				<p class="name">Maverick</p>
-			</div>
-			<div id="ChatBoxIcon-Background"></div>
+			<div id="CBTogglerBG"></div>
 		</div>
-		<div id="ChatBoxButton" style="display: none;">
-			<input type="image" src="img/chatbox.png" border="1px solid black" id="ChatBoxIcon" onClick="ChatBoxCounter()"/>
-		</div>	
 </body>
 
 </html> 
