@@ -37,65 +37,70 @@
   <title>template</title>
   <link rel="stylesheet" href="css/templete.css" media="screen" title="no title" charset="utf-8">
   <!-- Chat function -->
-  <script type="text/javascript" src="js/ChatFunction.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/ChatBox.css">
+  <script type="text/javascript" src="js/Chat Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Chatbox.css">
   <!-- Login function -->
-  <script type="text/javascript" src="js/LoginFunction.js"></script>
-
+  <script type="text/javascript" src="js/Login Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Login Page.css">
   <script>
-    window.onload = function() {StartupChecker();}
+  window.onload = function() {Onload_check();}
   </script>
+  <script>
+  function ContactableChange(){
+	var i = document.getElementById("SelectedContact").value;
+	console.log(i);
+	var telcontact = ["Tel No.: +65 7526 9182", "Tel No.: +65 5126 7182", "Tel No.: +65 2719 9182", "Tel No.: +65 0162 6172"];
+	document.getElementById("TelInjector").innerHTML = telcontact[i];
+  }
+  </script>
+  <style>
+  #content {color: white;}
+  </style>
 </head>
 <body>
     <header>
 
-      <nav id="LoginBar">
+      <nav>
         <img src="img/logo/logo.png" alt="">
         <ul>
-          <li><<a href="#" id="WelcomeUserName"></a></li>
+          <li><a id="username"></a></li>
           <li><a href="http://www.nyp.edu.sg/">Main</a></li>
           <li><a href="gpaCalculator.html">Tool</a></li>
 
-          <li id="LoginButton"><a href="#" onclick="WhenLoginPress()">Login</a></li>
-          <li id="LogoutButton"><a href="#" onclick="WhenLogoutPress()">Log Out</a></li>
-          <li><a href="">About</a></li>
+          <li id="Login_button"><a href="Login Page.html">Login</a></li>
+          <li id="Logout_button"><a href="#" onclick="Logout_submit()">Log Out</a></li>
+          <li><a href="contact.html">About</a></li>
         </ul>
       </nav>
-
-      <div id="LoginBox">
-        <form onsubmit="LoginSubmit(); this.reset(); return false;">
-          <button id="CloseLBButton" onclick="CloseLoginbox()">X</button>
-          Username:<br><input id="loginName" maxlength="9" required><br>
-          Password:<br><input id="loginPW" type="password"  required>
-          <button onclick="LoginSubmit()" required>Submit</button>
-        </form>
-      </div>
 
 
     </header>
     <div id="content" style="width:948px;text-align:center;margin:auto;">
-      <div style=" width: 98%; height: 750px; margin-left: auto; margin-right: auto; margin-top: 10px;text-align:center;">
+      <div style=" width: 100%; height: 750px; margin-left: auto; margin-right: auto; margin-top: 10px;text-align:center;">
+	    <h1 style="text-align: center;">About Us</h1>
+		<span>NYP Forum is built by a group of students in a goal of helping other students have a fulfilling life in NYP. As such we would like your feedback regarding NYP Forum to better enhance yours and others' experience using this forum.</span>
+		<div>_____________________________________________________________</div>
         <h1 style="text-align: center;">Contact Us</h1>
         <form action="Submitted Feedback.html">
           <fieldset style="float:left;border: #67c1f5 1px solid; padding: 5px; margin: 10px; width: 400px; border-radius: 3px;">
             <legend>By Message</legend>
             <label>Your Name</label><input required style="border: #67c1f5 1px solid; padding: 5px; width: 400px; border-radius: 3px; margin: 10px;"></input><br>
-            <label>Your Email</label><input type="email" required style="border: #67c1f5 1px solid; padding: 10px; width: 400px; border-radius: 3px; margin: 10px;"></input><br>
+            <label>Your Email</label><input type="email" required style="border: #67c1f5 1px solid; padding: 5px; width: 400px; border-radius: 3px; margin: 10px;"></input><br>
             <label>Your Tel No.</label><input type="tel" pattern="\d{8}" title="8 digit telephone number" required style="border: #67c1f5 1px solid; padding: 5px; width: 400px; border-radius: 3px; margin: 10px;"></input><br>
-            <label>Nature of Message</label><select style="border: #67c1f5 1px solid; padding: 5px; width: 400px; border-radius: 3px; margin: 10px;">
+            <label>Nature of Message</label><select style="border: #67c1f5 1px solid; padding: 5px; width: 411.6px; border-radius: 3px; margin: 10px;">
               <option>Design of website</option>
               <option>Bugs/Problem of website</option>
               <option>Feature request</option>
               <option>Others</option>
             </select>
-            <label>Your Message</label><textarea required style="border: #67c1f5 1px solid; padding: 5px; width: 400px; height: 200px; border-radius: 3px; margin: 10px;"></textarea>
+            <label>Your Message</label><textarea required style="resize: none; border: #67c1f5 1px solid; padding: 5px; width: 400px; height: 200px; border-radius: 3px; margin: 10px;"></textarea>
             <input type="submit" value="Submit" style="border: #67c1f5 1px solid; padding: 5px; border-radius: 3px; margin: 10px;"/>
           </fieldset>
         </form>
         <form>
           <fieldset style="float:right;border: #67c1f5 1px solid; padding: 5px; margin: 10px; width: 400px; border-radius: 3px;">
             <legend>By phone</legend>
-            <label>Contact developers through telephone number</label><select id="SelectedContact" onchange="ContactableChange()" style="border: #67c1f5 1px solid; padding: 5px; width: 400px; border-radius: 3px; margin: 10px;">
+            <label>Contact developers through telephone number</label><select id="SelectedContact" onchange="ContactableChange()" style="border: #67c1f5 1px solid; padding: 5px; width: 411.6px; border-radius: 3px; margin: 10px;">
               <option value="0">Jian An</option>
               <option value="1">Crescens Tan</option>
               <option value="2">He Fei</option>
@@ -119,39 +124,38 @@
         </div>
 
     </footer>
-    <!-- Chat -->
-
-		<a onclick="CBToggler()" href="#"><img id="CBToggler" src="img/Chatbox.png"></a>
-
-		<div id="CBWrapper" style="display: none;">
-			<div id="CBComments">
-				<div class="CBTextBG">
-					<span class="CBNames">Hendry</span>
-					<span>22/7/2016 16:55</span>
-					<p>Hello!</p>
-				</div>
-				<div class="CBTextBG">
-					<span class="CBNames">Caroline</span>
-					<span>22/7/2016 16:55</span>
-					<p>Hi!</p>
-				</div>
-				<div id="CBHidden" style="visibility: hidden;"></div>
+	<!-- Chat -->
+	<a onclick="Chatbox_toggler()" href="#"><img id="Chatbox_toggle" src="img/Chatbox_icon.png"></a>
+		
+	<div id="Chatbox_wrapper" style="display: none;">
+		<div id="Chatbox_text">
+			<div class="Chatbox_text_BG">
+				<span class="Chatbox_names">Hendry</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hello!</p>
 			</div>
-
-			<p class="CBNameHeader">Online<p>
-			<div id="CBUsers">
-				<p class="CBNames">Hendry</p>
-				<p class="CBNames">Caroline</p>
+			<div class="Chatbox_text_BG">				
+				<span class="Chatbox_names">Caroline</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hi!</p>
 			</div>
-
-			<div id="CBChatField">
-				<form onsubmit="this.reset(); return false">
-					<label style="display: none;">Message:</label><input id="CBCommentData" required></input>
-					<button onclick="CBCommentSend()">Send</button>
-				</form>
-			</div>
-
-			<div id="CBTogglerBG"></div>
+			<div id="Chatbox_hidden" style="visibility: hidden;"></div>
 		</div>
+			
+		<p class="Chatbox_name_title">Online<p>
+		<div id="Chatbox_users">
+			<p class="Chatbox_names">Hendry</p>
+			<p class="Chatbox_names">Caroline</p>
+		</div>
+			
+		<div id="Chatbox_field">
+			<form onsubmit="this.reset(); return false;">
+				<label style="display: none;">Message:</label><input id="Chatbox_data" required></input>
+				<button onclick="Chatbox_submit()">Send</button>
+			</form>
+		</div>
+		
+		<div id="Chatbox_toggle_BG"></div>
+	</div>
 </body>
 </html>
