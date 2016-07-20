@@ -1,0 +1,187 @@
+<!--
+  Name:
+  Admin no:
+  Module group:
+-->
+<!--//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永无BUG
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>template</title>
+  <link rel="stylesheet" href="css/templete.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/post.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src=js/jquery.js></script>
+  <script type="text/javascript" src=js/post.js></script>
+  <!-- Chat function -->
+  <script type="text/javascript" src="js/ChatFunction.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/ChatBox.css">
+  <!-- Login function -->
+  <script type="text/javascript" src="js/LoginFunction.js"></script>
+
+  <script>
+    window.onload = function() {StartupChecker();}
+  </script>
+</head>
+<body>
+    <header>
+
+      <nav id="LoginBar">
+        <img src="img/logo/logo.png" alt="">
+        <ul>
+          <li><<a href="#" id="WelcomeUserName"></a></li>
+          <li><a href="http://www.nyp.edu.sg/">Main</a></li>
+          <li><a href="gpaCalculator.html">Tool</a></li>
+
+          <li id="LoginButton"><a href="#" onclick="WhenLoginPress()">Login</a></li>
+          <li id="LogoutButton"><a href="#" onclick="WhenLogoutPress()">Log Out</a></li>
+          <li><a href="contact.html">About</a></li>
+        </ul>
+      </nav>
+
+      <div id="LoginBox">
+        <form onsubmit="LoginSubmit(); this.reset(); return false;">
+          <button id="CloseLBButton" onclick="CloseLoginbox()">X</button>
+          Username:<br><input id="loginName" maxlength="9" required><br>
+          Password:<br><input id="loginPW" type="password"  required>
+          <button onclick="LoginSubmit()" required>Submit</button>
+        </form>
+      </div>
+
+
+    </header>
+    <div id="content">
+      <!--  data-->
+    	<div id="wrapper">
+    	<section>
+    		<p>
+    			<a href="index.html">NYP</a>
+    			<em>>></em>
+    			<a href="ForumsThreads.html">SIT</a>
+    			<em>>></em>
+    			<Strong>Information Technology</strong>
+    		</p>
+    	</section>
+    	<section id="data">
+    		<hr>
+    		<form method="get" action="">
+    			<label id="title">Title:
+    				<input type="text" name="title" size="20" id="title_box" placeholder="Enter here">
+    			</label>
+    			<div id="input_area">
+    				<div id="toolbox">				<select name="font">
+    						<option value="Arial">Arial</option>
+    						<option value="Verdana">Verdana</option>
+							<option value="serif">Serif</option>
+							<option value="sans serif">Sans Serif</option>
+    					</select>
+    					<select name="color">
+    						<option value="Red">Red</option>
+    						<option value="green">Green</option>
+							<option value="yellow">Yellow</option>
+							<option value="blue">Blue</option>
+    					</select>
+    					<select name="fontSize">
+    						<option value="16">16</option>
+    						<option value="18">18</option>
+							<option value="20">20</option>
+							<option value="22">22</option>
+    					</select>
+    					<button type="button">B</button>
+    					<button type="button">/</button>
+    					<button type="button">U</button>
+    				</div>
+
+
+
+
+    				<textarea name="comment" rows="20" id="word_count"></textarea>
+    				<p>Total Words:<span id="display_count">0</span></p>
+
+    			</div>
+
+    		</form>
+
+    		<div id="submit">
+    			<input type="submit" name="Submit" class="submit" onclick="redirect()">
+    			<button type="button" class="submit" onclick="redirect()">Cancel</button>
+    		</div>
+    		<hr>
+    	</section>
+    	</div>
+
+    </div>
+    <footer>
+      <div>
+      <a href="http://www.nyp.edu.sg/others/copyright-and-disclaimer">Copyright and Disclaimer</a>
+      <a href="http://www.nyp.edu.sg/others/privacy-policy">Privacy Policy</a>
+      <a href="http://www.nyp.edu.sg/others/organisational-awards">Organizational Awards</a>
+      <hr>
+      <p>Nanyang Polytechnic 180 Ang Mo Kio Avenue 8 Singapore 569830 Tel:6451 5115<br>
+            Copyright© 2016 NYP, Singapore. All rights reserved.<br>
+             Best viewed at 1920 x 1080 resolution with Firefox.</p>
+        </div>
+
+    </footer>
+    <!-- Chat -->
+
+		<a onclick="CBToggler()" href="#"><img id="CBToggler" src="img/Chatbox.png"></a>
+
+		<div id="CBWrapper" style="display: none;">
+			<div id="CBComments">
+				<div class="CBTextBG">
+					<span class="CBNames">Hendry</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hello!</p>
+				</div>
+				<div class="CBTextBG">
+					<span class="CBNames">Caroline</span>
+					<span>22/7/2016 16:55</span>
+					<p>Hi!</p>
+				</div>
+				<div id="CBHidden" style="visibility: hidden;"></div>
+			</div>
+
+			<p class="CBNameHeader">Online<p>
+			<div id="CBUsers">
+				<p class="CBNames">Hendry</p>
+				<p class="CBNames">Caroline</p>
+			</div>
+
+			<div id="CBChatField">
+				<form onsubmit="this.reset(); return false">
+					<label style="display: none;">Message:</label><input id="CBCommentData" required></input>
+					<button onclick="CBCommentSend()">Send</button>
+				</form>
+			</div>
+
+			<div id="CBTogglerBG"></div>
+		</div>
+</body>
+</html>
