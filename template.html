@@ -36,6 +36,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>template</title>
   <link rel="stylesheet" href="css/templete.css" media="screen" title="no title" charset="utf-8">
+  <!-- Chat function -->
+  <script type="text/javascript" src="js/Chat Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Chatbox.css">
+  <!-- Login function -->
+  <script type="text/javascript" src="js/Login Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Login Page.css">
+  <script>
+  window.onload = function() {Onload_check();}
+  </script>
 </head>
 <body>
     <header>
@@ -43,8 +52,10 @@
         <nav>
           <img src="img/logo/logo.png" alt="">
             <ul>
+			  <li><a id="username"></a></li>
               <li><a href="">Main</a></li>
-              <li> <a href="">Login</a></li>
+              <li id="Login_button"><a href="Login Page.html">Login</a></li>
+			  <li id="Logout_button"><a href="#" onclick="Logout_submit()">Log Out</a></li>
               <li><a href="">Tools</a></li>
               <li><a href="">About us</a></li>
             </ul>
@@ -73,5 +84,39 @@
         </div>
 
     </footer>
+	
+	<!-- Chat -->
+	<a onclick="Chatbox_toggler()" href="#"><img id="Chatbox_toggle" src="img/Chatbox_icon.png"></a>
+		
+	<div id="Chatbox_wrapper" style="display: none;">
+		<div id="Chatbox_text">
+			<div class="Chatbox_text_BG">
+				<span class="Chatbox_names">Hendry</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hello!</p>
+			</div>
+			<div class="Chatbox_text_BG">				
+				<span class="Chatbox_names">Caroline</span>
+				<span>22/7/2016 16:55</span>
+				<p>Hi!</p>
+			</div>
+			<div id="Chatbox_hidden" style="visibility: hidden;"></div>
+		</div>
+			
+		<p class="Chatbox_name_title">Online<p>
+		<div id="Chatbox_users">
+			<p class="Chatbox_names">Hendry</p>
+			<p class="Chatbox_names">Caroline</p>
+		</div>
+			
+		<div id="Chatbox_field">
+			<form onsubmit="this.reset(); return false;">
+				<label style="display: none;">Message:</label><input id="Chatbox_data" required></input>
+				<button onclick="Chatbox_submit()">Send</button>
+			</form>
+		</div>
+		
+		<div id="Chatbox_toggle_BG"></div>
+	</div>
 </body>
 </html>
