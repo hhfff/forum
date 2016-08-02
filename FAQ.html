@@ -1,0 +1,153 @@
+<!--
+  Name:
+  Admin no:
+  Module group:
+-->
+<!--//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永无BUG
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>post</title>
+  <link rel="stylesheet" href="css/templete.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/post.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src=js/jquery.js></script>
+  <script type="text/javascript" src=js/post.js></script>
+  <!-- Chat function -->
+  <script type="text/javascript" src="js/Chat Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Chatbox.css">
+  <!-- Login function -->
+  <script type="text/javascript" src="js/Login Function.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/Login Page.css">
+  <link rel="stylesheet" type="text/css" href="css/FAQ.css">
+  <script>
+  window.onload = function() {Onload_check();}
+  </script>
+</head>
+<body>
+    <header>
+
+      <nav>
+        <a href="mainpage.html"><img src="img/logo/logo.png" alt=""></a>
+        <ul>
+          <li><a id="username"></a></li>
+          <li><a href="http://www.nyp.edu.sg/">Main</a></li>
+          <li><a href="gpaCalculator.html">Tool</a></li>
+
+          <li id="Login_button"><a href="Login Page.html">Login</a></li>
+          <li id="Logout_button"><a href="#" onclick="Logout_submit()">Log Out</a></li>
+          <li><a href="contact.html">About</a></li>
+        </ul>
+      </nav>
+
+
+    </header>
+    <div id="content">
+      <!--  data-->
+    	<div id="wrapper">
+    	<section>
+    		<p>
+    			<a href="index.html">NYP</a>
+    			<em>>></em>
+    			<strong>FAQ</strong>
+    			
+    			
+    		</p>
+    	</section>
+		<div id="FAQ">
+			<h1>Frequently Asked Questions</h1>
+			<br>
+			<br>
+			<p>1.Where can i contact the developers of the forum application?</p>
+			<p>You can head over to the "About" link at the top right hand corner or click the link <link><a href="contact.html">here</link></a></p>
+			<br>
+			<br>
+			<p>2.Are guests allowed to post and comment in the forum?</p>
+			<p>Currently,only current students from Nanyang Polytechnic are allowed to post and comment in the forum</p>
+			<br>
+			<br>
+			<p>3.What are some of the special features of the forum?</p>
+			<p>Our forum has a GPA calcalator in the <link><a href="gpaCalculator.html">"Tool"</link></a> link which users can see their GPA result.Also,the forum has online chat box that users will be able to connect with one another</p>
+			<br>
+			<br>
+			<p>4.How do you go back to main page of the forum?</p>
+			<p>Click on the Nanyang Polytechnic Forum Logo to go back to the main page.</p>
+			<br>
+			<br>
+			<p>5.How long does the forum operates daily?</p>
+			<p>It will run 24/7</p>
+		</div>
+		<br>
+    <footer>
+      <div>
+      <a href="http://www.nyp.edu.sg/others/copyright-and-disclaimer">Copyright and Disclaimer</a>
+      <a href="http://www.nyp.edu.sg/others/privacy-policy">Privacy Policy</a>
+      <a href="http://www.nyp.edu.sg/others/organisational-awards">Organizational Awards</a>
+      <hr>
+      <p>Nanyang Polytechnic 180 Ang Mo Kio Avenue 8 Singapore 569830 Tel:6451 5115<br>
+            Copyright© 2016 NYP, Singapore. All rights reserved.<br>
+             Best viewed at 1920 x 1080 resolution with Firefox.</p>
+        </div>
+
+    </footer>
+    <!-- Chat -->
+  	<a onclick="Chatbox_toggler()" href="#"><img id="Chatbox_toggle" src="img/Chatbox_icon.png"></a>
+
+  	<div id="Chatbox_wrapper" style="display: none;">
+  		<div id="Chatbox_text">
+  			<div class="Chatbox_text_BG">
+  				<span class="Chatbox_names">Hendry</span>
+  				<span>22/7/2016 16:55</span>
+  				<p>Hello!</p>
+  			</div>
+  			<div class="Chatbox_text_BG">
+  				<span class="Chatbox_names">Caroline</span>
+  				<span>22/7/2016 16:55</span>
+  				<p>Hi!</p>
+  			</div>
+  			<div id="Chatbox_hidden" style="visibility: hidden;"></div>
+  		</div>
+
+  		<p class="Chatbox_name_title">Online<p>
+  		<div id="Chatbox_users">
+  			<p class="Chatbox_names">Hendry</p>
+  			<p class="Chatbox_names">Caroline</p>
+  		</div>
+
+  		<div id="Chatbox_field">
+  			<form onsubmit="this.reset(); return false;">
+  				<label style="display: none;">Message:</label><input id="Chatbox_data" required></input>
+  				<button onclick="Chatbox_submit()">Send</button>
+  			</form>
+  		</div>
+
+  		<div id="Chatbox_toggle_BG"></div>
+  	</div>
+</body>
+</html>
