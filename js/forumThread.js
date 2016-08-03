@@ -28,23 +28,16 @@ $(document).ready(function(){
 
 
 	//loading data
-	var currentIndex=1;
+	//var currentIndex=1;
 	var maxLoad=20;
 	initialize();
 	function initialize(){
 		LoadData(function(result){
 			var list=result.split("&");
 			insertData(list);
+			insertButton(list.length);
 		});
-		jQuery.ajax({
-			url:"data/"+queryData[0]+"/"+queryData[1]+".txt",
-			dataType:"text",
-			success:function(data){
-				var list=data.split("&");
-				insertButton(list.length);
-				
-			}
-		});
+		
 	}
 	function insertButton(totalList){
 		//base on number of total thread to determine button
@@ -68,20 +61,23 @@ $(document).ready(function(){
 	$(document).on("click",".dataBut",function(){
 		var dataButList=$(".dataBut");
 		//if(currentIndex!=dataButList.index(this)){
-			currentIndex=dataButList.index(this);
+			var currentIndex=dataButList.index(this);
 			currentIndex++;
+			 
 			if(state==typeOfState.normal){
 				LoadData(function(result){
 					var list=result.split("&");
-					insertData(list);
+					insertData(list,currentIndex);
 
 				});
 
 			}
 			else if(state==typeOfState.search){
 				//test not done
+				
 				LoadData(function(result){
-					search();
+					
+					search(currentIndex);
 
 				});
 
@@ -96,9 +92,8 @@ $(document).ready(function(){
 
 		
 	
-	function search(){
+	function search(buttonIndex=1){
 		state=typeOfState.search;
-
 		LoadData(function(result){
 			var list=result.split("&");
 			var value=$("#searchData").val();
@@ -113,7 +108,7 @@ $(document).ready(function(){
 			}
 			//to check wether find the data
 			if(newList.length!=0){
-				insertData(newList);
+				insertData(newList,buttonIndex);
 				$("#dataButContiner").empty();
 				insertButton(newList.length);
 			}
@@ -124,7 +119,7 @@ $(document).ready(function(){
 			}
 			
 		});
-		currentIndex=1;
+		//currentIndex=1;
 		
 
 	}
@@ -143,9 +138,9 @@ $(document).ready(function(){
 		});
 	}
 		
-	function insertData(list){
+	function insertData(list,buttonIndex=1){
 		//the list is ?,?,|
-		var lastIndex=currentIndex*maxLoad;
+		var lastIndex=buttonIndex*maxLoad;
 		
 		for(var i=lastIndex-maxLoad;i<lastIndex;i++){
 			if(i>list.length-1){
