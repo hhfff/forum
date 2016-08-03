@@ -114,3 +114,15 @@ tbody tr:hover{
 	#mainThread {width: 320px; float:left; clear: left;}
 
 }
+#searchField{
+ 
+  padding:10px;
+}
+#searchData{
+  height:30px;
+}
+#search{
+  height:32px;
+  width:32px;
+  vertical-align: bottom;
+}

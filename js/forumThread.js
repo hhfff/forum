@@ -32,69 +32,133 @@ $(document).ready(function(){
 	var maxLoad=20;
 	initialize();
 	function initialize(){
-		LoadData();
+		LoadData(function(result){
+			var list=result.split("&");
+			insertData(list);
+		});
 		jQuery.ajax({
 			url:"data/"+queryData[0]+"/"+queryData[1]+".txt",
 			dataType:"text",
 			success:function(data){
 				var list=data.split("&");
-				//base on number of total thread to determine button
-				var totalBut=0;
-				//truncate to int type
-				totalBut=parseInt(list.length/maxLoad);
-				//check if more than totalbut add 1 more button
-				if(list.length%maxLoad!=0){
-					totalBut++;
-				}
-				//insert button into html
-
-				for(var i=1;i<=totalBut;i++){
-					var newBut="<li class=\"dataBut\">"+i+"</li>";
-					$("#dataButContiner").append(newBut);
-				}
+				insertButton(list.length);
+				
 			}
 		});
+	}
+	function insertButton(totalList){
+		//base on number of total thread to determine button
+		var totalBut=0;
+		//truncate to int type
+		totalBut=parseInt(totalList/maxLoad);
+		//check if more than totalbut add 1 more button
+		if(totalList%maxLoad!=0){
+			totalBut++;
+		}
+		//insert button into html
+		for(var i=1;i<=totalBut;i++){
+			var newBut="<li class=\"dataBut\">"+i+"</li>";
+			$("#dataButContiner").append(newBut);
+		}
+	}
+	var typeOfState={normal:1,search:2,sort:3,};
+	var state=typeOfState.normal;
 
 
-		$(document).on("click",".dataBut",function(){
-			var dataButList=$(".dataBut");
+	$(document).on("click",".dataBut",function(){
+		var dataButList=$(".dataBut");
+		//if(currentIndex!=dataButList.index(this)){
 			currentIndex=dataButList.index(this);
 			currentIndex++;
-			LoadData();
-		});
+			if(state==typeOfState.normal){
+				LoadData(function(result){
+					var list=result.split("&");
+					insertData(list);
 
-		//attach click event to databut
-		//$(document).on("click",".dataBut"){}
-		/*jQuery.each(dataButList,function(index,value){
-			dataButList
-		});*/
+				});
+
+			}
+			else if(state==typeOfState.search){
+				//test not done
+				LoadData(function(result){
+					search();
+
+				});
+
+			}
+			
+
+			
+		//}
+		
+	});
+	$("#search").click(function(){search()});
+
+		
+	
+	function search(){
+		state=typeOfState.search;
+
+		LoadData(function(result){
+			var list=result.split("&");
+			var value=$("#searchData").val();
+			var newList=[];
+			for(var i=0;i<list.length;i++){
+				var dataList=list[i].split("|");
+				
+				if(dataList[0].indexOf(value)!=-1){
+					newList.push(list[i]);
+				}
+
+			}
+			//to check wether find the data
+			if(newList.length!=0){
+				insertData(newList);
+				$("#dataButContiner").empty();
+				insertButton(newList.length);
+			}
+			else{
+				$("#threadList").append("<h1 style=\"color:white;font-size:30px;margin-left:auto;margin-right:auto;\">No result founded</h1>");
+				$("#dataButContiner").empty();
+
+			}
+			
+		});
+		currentIndex=1;
+		
+
 	}
 
 
-	function LoadData(){
-		var lastIndex=currentIndex*maxLoad;
+	function LoadData(callback){		
 		$("#threadList").empty();
-		jQuery.ajax({
+		
+		return jQuery.ajax({
 			url:"data/"+queryData[0]+"/"+queryData[1]+".txt",
 			dataType:"text",
-			success:function(data){
-				var list=data.split("&");
-				//base on last index to load certain portion of data from array
-				for(var i=lastIndex-maxLoad;i<lastIndex;i++){
-
-					var splitData=list[i].split("|");
-					var newRow="<tr><td class=\"name\"><a href=\"threadpage.html?id="+splitData[0]+"\">"+splitData[0]+"</a></td><td class=\"by\">"+splitData[1]+"</td><td class=\"date\">"+splitData[2]+"</td></tr>";
-
-					$("#threadList").append(newRow);
-					if(i>list.length-1){
-						break;
-					}
-
-				}
-			}
+			success: callback//function(data){
+				//var list=data.split("&");
+				
+			//}
 		});
+	}
+		
+	function insertData(list){
+		//the list is ?,?,|
+		var lastIndex=currentIndex*maxLoad;
+		
+		for(var i=lastIndex-maxLoad;i<lastIndex;i++){
+			if(i>list.length-1){
+				break;
+			}
 
+			var splitData=list[i].split("|");
+			var newRow="<tr><td class=\"name\"><a href=\"threadpage.html?id="+splitData[0]+"\">"+splitData[0]+"</a></td><td class=\"by\">"+splitData[1]+"</td><td class=\"date\">"+splitData[2]+"</td></tr>";
 
+			$("#threadList").append(newRow);
+			
+
+		}
 
 	}
 
