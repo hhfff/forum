@@ -56,32 +56,38 @@
 #finish{
 	text-align:center;
 }
+/*NYP Forum Logo*/
 #guide1pos{
 	position:relative;
-	left:13em;
-	top:6em;
+	left:17%;
+	top:12%;
 }
+/*Modal Main*/
 #guide2pos{
 	position:relative;
-	left:52em;
-	top:6em;
+	left:55%;
+	top:12%;
 }
+/*Tools*/
 #guide3pos{
 	position:relative;
-	left:56em;
-	top:6em;
+	left:59%;
+	top:12%;
 }
+/*Login*/
 #guide4pos{
 	position:relative;
-	left:61em;
-	top:6em;
+	left:64%;
+	top:12%;
 }
+/*VIsit Threads*/
 #guide6pos{
 	position:relative;
-	left:2em;
-	top:27em;
+	left:2%;
+	top:57%;
 	width:15%;
 }
+/*End*/
 #guide7pos{
 	margin:auto;
 }
