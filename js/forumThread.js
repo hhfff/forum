@@ -39,12 +39,14 @@ $(document).ready(function(){
 		});
 		
 	}
+	//base on length of array and how many we want per button to calculate number of button
+	//there is decimal part then increase 1
 	function insertButton(totalList){
 		//base on number of total thread to determine button
 		var totalBut=0;
 		//truncate to int type
 		totalBut=parseInt(totalList/maxLoad);
-		//check if more than totalbut add 1 more button
+		//check decimal part add 1 more button
 		if(totalList%maxLoad!=0){
 			totalBut++;
 		}
@@ -56,14 +58,16 @@ $(document).ready(function(){
 	}
 	var typeOfState={normal:1,search:2,sort:3,};
 	var state=typeOfState.normal;
+	//because use search and normal use same function need to check
 
 
 	$(document).on("click",".dataBut",function(){
 		var dataButList=$(".dataBut");
-		//if(currentIndex!=dataButList.index(this)){
+			//get index number on list base on button
+		
 			var currentIndex=dataButList.index(this);
 			currentIndex++;
-			 
+			 //normal state
 			if(state==typeOfState.normal){
 				LoadData(function(result){
 					var list=result.split("&");
@@ -73,7 +77,7 @@ $(document).ready(function(){
 
 			}
 			else if(state==typeOfState.search){
-				//test not done
+				
 				
 				LoadData(function(result){
 					
@@ -91,7 +95,7 @@ $(document).ready(function(){
 	$("#search").click(function(){search()});
 
 		
-	
+	//get value from box ,load data from txt,check wether data match value,if match insert to new array
 	function search(buttonIndex=1){
 		state=typeOfState.search;
 		LoadData(function(result){
@@ -100,19 +104,21 @@ $(document).ready(function(){
 			var newList=[];
 			for(var i=0;i<list.length;i++){
 				var dataList=list[i].split("|");
-				
+				//check wether array contain certain string ,return -1 if not found
 				if(dataList[0].indexOf(value)!=-1){
 					newList.push(list[i]);
 				}
 
 			}
-			//to check wether find the data
 			if(newList.length!=0){
+				//base on new array list  to sent data and button index to insert function,empty the button list and create new button list
+
 				insertData(newList,buttonIndex);
 				$("#dataButContiner").empty();
 				insertButton(newList.length);
 			}
 			else{
+				//no data found just display empty and clear button
 				$("#threadList").append("<h1 style=\"color:white;font-size:30px;margin-left:auto;margin-right:auto;\">No result founded</h1>");
 				$("#dataButContiner").empty();
 
@@ -124,7 +130,7 @@ $(document).ready(function(){
 
 	}
 
-
+	//delete all content and return the data once successful load
 	function LoadData(callback){		
 		$("#threadList").empty();
 		
@@ -137,12 +143,14 @@ $(document).ready(function(){
 			//}
 		});
 	}
-		
+
+	//use insert data to page from arraylist base on button press	
 	function insertData(list,buttonIndex=1){
 		//the list is ?,?,|
 		var lastIndex=buttonIndex*maxLoad;
 		
 		for(var i=lastIndex-maxLoad;i<lastIndex;i++){
+			//check list last element if i larger than last element just terminate the loop
 			if(i>list.length-1){
 				break;
 			}
